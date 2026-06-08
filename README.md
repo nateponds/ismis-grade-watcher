@@ -29,8 +29,8 @@ Automatically monitors your ISMIS grades and GPA, and emails you the moment anyt
 ## Installation
 
 ```bash
-git clone <your-repo-url>
-cd ismis-watcher
+git clone https://github.com/alferrr/ismis-grade-watcher.git
+cd ismis-grade-watcher
 
 npm install
 npx playwright install chromium
@@ -146,46 +146,6 @@ Set `CHECK_CRON` in `.env`. All times use **Asia/Manila (PHT, UTC+8)**.
 
 ---
 
-## Deployment on the DCISM Server (PM2)
-
-### 1. Upload the project
-
-```bash
-scp -r ismis-watcher/ user@web.dcism.org:~/ismis-watcher
-```
-
-### 2. Install on the server
-
-```bash
-cd ~/ismis-watcher
-npm install
-npx playwright install chromium --with-deps
-cp .env.example .env && nano .env
-```
-
-### 3. Start with PM2
-
-```bash
-mkdir -p logs
-pm2 start ecosystem.config.js
-pm2 save
-pm2 startup   # run the printed command to survive reboots
-```
-
-### Useful PM2 commands
-
-```bash
-pm2 logs ismis-watcher        # live log tail
-pm2 status                    # confirm it's running
-pm2 restart ismis-watcher     # apply .env changes
-pm2 stop ismis-watcher        # pause
-pm2 delete ismis-watcher      # remove
-```
-
-Logs are written to `logs/out.log` and `logs/error.log`.
-
----
-
 ## How It Works
 
 ```
@@ -240,14 +200,14 @@ When grades are posted you'll receive an email like:
 | Data Structures        | NG     | **1.50** |
 | **OVERALL GPA**        | 1.38   | **1.32** |
 
-The GPA row is **bolded** in the email. Subjects are listed in the order they were detected.
+~~The GPA row is **bolded** in the email. Subjects are listed in the order they were detected.~~
 
 ---
 
 ## Project Structure
 
 ```
-ismis-watcher/
+ismis-grade-watcher/
 ├── watcher.js            # main script
 ├── ecosystem.config.js   # PM2 config
 ├── .env.example          # env template
@@ -296,9 +256,9 @@ rm grades.json
 node watcher.js   # re-baselines from your current grades
 ```
 
-**GPA row keeps appearing in every email**
+~~**GPA row keeps appearing in every email**~~
 
-- The GPA scraper targets the last two cells of the last table row. If ISMIS changes their layout, the value may be misread. Check `grades.json` → `__meta.gpa` to see what's being saved.
+- ~~The GPA scraper targets the last two cells of the last table row. If ISMIS changes their layout, the value may be misread. Check `grades.json` → `__meta.gpa` to see what's being saved.~~
 
 ---
 
