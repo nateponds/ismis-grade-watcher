@@ -79,7 +79,7 @@ On first run, `grades.json` is created with your current grades as the baseline.
 ### Test your email
 
 ```bash
-TEST_EMAIL=true node watcher.js
+TEST_EMAIL=true
 ```
 
 Sends a dummy grade alert without touching ISMIS — use this to confirm your Gmail credentials work before deploying.
