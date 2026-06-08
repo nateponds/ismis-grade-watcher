@@ -1,4 +1,4 @@
-# ISMIS Grade & GPA Watcher
+# ISMIS Grade Watcher
 
 Automatically monitors your ISMIS grades and GPA, and emails you the moment anything changes, no more manual refreshing.
 
