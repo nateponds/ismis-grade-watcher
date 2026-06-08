@@ -1,0 +1,4 @@
+.env
+grades.json
+logs/
+node_modules/
