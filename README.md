@@ -198,7 +198,7 @@ When grades are posted you'll receive an email like:
 | ---------------------- | ------ | -------- |
 | Computer Programming 2 | NG     | **1.25** |
 | Data Structures        | NG     | **1.50** |
-| **OVERALL GPA**        | 1.38   | **1.32** |
+|~~**OVERALL GPA**~~     | ~~1.38~~| ~~**1.32**~~ |
 
 ~~The GPA row is **bolded** in the email. Subjects are listed in the order they were detected.~~
 
