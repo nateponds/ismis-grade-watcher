@@ -68,11 +68,6 @@ nano .env
 
 ## Usage
 
-### Run once
-
-```bash
-node watcher.js
-```
 
 On first run, `grades.json` is created with your current grades as the baseline. No alert is sent unless a change is detected.
 
@@ -85,12 +80,6 @@ TEST_EMAIL=true
 Sends a dummy grade alert without touching ISMIS — use this to confirm your Gmail credentials work before deploying.
 
 ### Run continuously
-
-```bash
-node watcher.js
-```
-
-Checks immediately on startup, then repeats on your `CHECK_CRON` schedule.
 
 ### Prevent your machine from sleeping (local use)
 
