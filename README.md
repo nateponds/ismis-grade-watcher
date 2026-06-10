@@ -120,9 +120,8 @@ Alternatively, open **Settings → System → Power & Sleep** and set both dropd
 
 ---
 
-### Startup Command
+### Starting the Watcher (All Operating Systems)
 
-\*\*For Linux Ubuntu
 Ensure PM2 is installed globally, check by running this command.
 
 ```powershell
