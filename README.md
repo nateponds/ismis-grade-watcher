@@ -68,7 +68,6 @@ nano .env
 
 ## Usage
 
-
 On first run, `grades.json` is created with your current grades as the baseline. No alert is sent unless a change is detected.
 
 ### Test your email
@@ -120,6 +119,35 @@ Alternatively, open **Settings → System → Power & Sleep** and set both dropd
 > For long-term / unattended use, deploy on the DCISM server with PM2 instead — no sleep concerns there.
 
 ---
+
+### Startup Command
+
+\*\*For Linux Ubuntu
+Ensure PM2 is installed globally, check by running this command.
+
+```powershell
+pm2 --version
+```
+
+Start the watcher using the included ecosystem configuration file:
+
+```powershell
+pm2 start ecosystem.config.js --env production
+```
+
+Save your active PM2 processes so they are remembered across server reboots:
+
+```powershell
+pm2 save
+```
+
+Checking Status & Logs
+Once running, you can monitor the watcher using:
+
+```powershell
+pm2 status
+pm2 logs ismis-watcher
+```
 
 ## Cron Schedule Reference
 
@@ -183,11 +211,11 @@ When grades are posted you'll receive an email like:
 
 **Subject:** `ISMIS Grade Update: Computer Programming 2, Data Structures, OVERALL GPA`
 
-| Subject                | Before | After    |
-| ---------------------- | ------ | -------- |
-| Computer Programming 2 | NG     | **1.25** |
-| Data Structures        | NG     | **1.50** |
-|~~**OVERALL GPA**~~     | ~~1.38~~| ~~**1.32**~~ |
+| Subject                | Before   | After        |
+| ---------------------- | -------- | ------------ |
+| Computer Programming 2 | NG       | **1.25**     |
+| Data Structures        | NG       | **1.50**     |
+| ~~**OVERALL GPA**~~    | ~~1.38~~ | ~~**1.32**~~ |
 
 ~~The GPA row is **bolded** in the email. Subjects are listed in the order they were detected.~~
 
